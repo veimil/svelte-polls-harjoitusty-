@@ -31,13 +31,11 @@
 
     .tabs li {
         margin: 0 16px;
-        font-size: 2em;
+        font-size: 1.7em;
         color: #595959;
         cursor: pointer;
     }
     .active {
-        color: red;
-        border-bottom: 2px solid red;
-        padding-bottom: 5px;
+        color: #ff3e00;
     }
 </style>

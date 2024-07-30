@@ -4,7 +4,8 @@
     export let inverse = false;
 </script>
 
-<button class={type} class:flat={flat} class:inverse={inverse}>
+<button class={type} class:flat={flat} class:inverse={inverse} on:click>
+    <!-- on:click event forwarder is needed since this is a custom button element -->
     <slot></slot>
 </button>
 

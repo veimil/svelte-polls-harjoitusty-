@@ -1,23 +1,27 @@
 <header>
-    <h1>
-        <img src="img/pexels-poll.jpg" alt="" />
-    </h1>
+    
+   
+    <img src="img/Svelte.webp" alt="" />
+    <h1>Svelte Polls</h1>
 </header>
 
 <style>
     header {
         width: 100%;
-        background: #f7f7f7;
-        padding: 20px;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        background: white;
+
+    }
+    header h1 {
+        display: inline-block;
+        text-align: center;
     }
 
-    header h1{
+    header img {
         margin: 0;
         padding: 0;
-        text-align: center;
-        height: 200px;
-    }
-    header img {
-        max-height: 100%;
+        height: 100%;
     }
 </style>

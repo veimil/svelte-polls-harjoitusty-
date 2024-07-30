@@ -6,7 +6,9 @@
 
 <style>
     footer{
-        padding: 40px;
+        padding: 50px;
+        margin-top: 80px;
+        background-color: #bebebe;
         text-align: center;
     }
 

@@ -1,4 +1,5 @@
 <script>
+    import PollStore from "../stores/PollStore";
     import { createEventDispatcher } from "svelte";
     import Button from "../shared/Button.svelte";
     let fields = { question: "", answerA: "", answerB: "" };
@@ -36,7 +37,12 @@
         //add the poll
         if (valid) {
             let poll = {...fields, votesA: 0, votesB: 0, id: Math.random()};
-            dispatch('add', poll);
+
+            // save poll to the store
+            PollStore.update((currentPolls) => { //the callback function takes the current data from the store
+                return [poll, ...currentPolls]; //return updates the content of the store. No unsubscription needed with the update-method
+            })
+            dispatch('add');   //dispatching just the event identifier
         }
     };
 </script>
