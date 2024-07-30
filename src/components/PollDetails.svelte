@@ -3,6 +3,7 @@
     import Card from "../shared/Card.svelte";
     import Button from "../shared/Button.svelte";
     import { tweened } from "svelte/motion";
+    import { cubicOut } from 'svelte/easing'; 
 
     export let poll;
 
@@ -12,12 +13,18 @@
     $: percentB = Math.floor((poll.votesB / totalVotes) * 100) || 0;
 
     //tweened percentages
-    const tweenedA = tweened(0);
-    const tweenedB = tweened(0);
+    const tweenedA = tweened(0, {
+        duration: 200, // Duration in milliseconds
+        easing: cubicOut // Optional easing function
+    });
+    const tweenedB = tweened(0, {
+        duration: 200, // Duration in milliseconds
+        easing: cubicOut // Optional easing function
+    });
 
     $: tweenedA.set(percentA);
     $: tweenedB.set(percentB);
-    $: console.log($tweenedA, $tweenedB)
+    $: console.log($tweenedA, $tweenedB);
 
     const handleVote = (option, id) => {
         PollStore.update((currentPolls) => {
@@ -60,7 +67,7 @@
         </div>
     </div>
     <div class="delete">
-        <Button flat={true} on:click={() => handleDelete(poll.id)}
+        <Button on:click={() => handleDelete(poll.id)}
             >Delete</Button
         >
     </div>
@@ -100,11 +107,11 @@
     }
 
     .percent-a {
-        background-color: rgba(255, 0, 0, 0.2);
+        background-color: rgba(0, 64, 255, 0.3);
     }
 
     .percent-b {
-        background-color: rgba(11, 158, 0, 0.2);
+        background-color: rgba(255, 0, 0, 0.3);
     }
 
     .delete {

@@ -23,7 +23,7 @@
         </div>
     {:else}
         <div class="nopolls">
-            <p>no polls to display</p>
+            <p>No polls to display</p>
         </div>
     {/each}
 </div>
@@ -34,10 +34,12 @@
         grid-template-columns: 1fr 1fr;
         gap: 20px;
     }
-    .nopolls{
+    .nopolls {
         height: 200px;
         text-align: center;
         margin: auto;
         padding: 30px 0;
+        color: #ff3e00;
+        font-size: 1.5em;
     }
 </style>

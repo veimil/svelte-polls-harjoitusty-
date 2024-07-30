@@ -36,13 +36,14 @@
         }
         //add the poll
         if (valid) {
-            let poll = {...fields, votesA: 0, votesB: 0, id: Math.random()};
+            let poll = { ...fields, votesA: 0, votesB: 0, id: Math.random() };
 
             // save poll to the store
-            PollStore.update((currentPolls) => { //the callback function takes the current data from the store
+            PollStore.update((currentPolls) => {
+                //the callback function takes the current data from the store
                 return [poll, ...currentPolls]; //return updates the content of the store. No unsubscription needed with the update-method
-            })
-            dispatch('add');   //dispatching just the event identifier
+            });
+            dispatch("add"); //dispatching just the event identifier
         }
     };
 </script>
@@ -78,13 +79,13 @@
 
     input {
         width: 100%;
-        border-radius: 10px;
+        border-radius: 7px;
     }
     label {
         margin: 10px auto;
         text-align: left;
     }
-    .error{
+    .error {
         color: red;
         text-align: left;
         font-size: 0.8em;
